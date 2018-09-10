@@ -6,7 +6,7 @@
 #    By: ohamon <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/10 11:50:13 by ohamon            #+#    #+#              #
-#    Updated: 2018/09/10 11:56:27 by ohamon           ###   ########.fr        #
+#    Updated: 2018/09/10 12:50:18 by ohamon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,33 @@ OBJ =  $(SRC:.c=.o)
 OBJ := $(addprefix $(OBJ_FOLDER), $(OBJ))
 SRC := $(addprefix $(SRC_FOLDER), $(SRC))
 
+LIBFT = ./libft/libft.a
+LIBFTLINK = ./libft/
+
+INCLUDES = includes/
+
+.PHONY: all clean fclean re
+
 all: $(NAME)
 
-$(NAME): $(OBJ)
+libft: $(LIBFT)
 
+$(OBJ): $(SRC)
+		gcc $(CFLAGS) -c $(SRC) -I $(INCLUDES)
+		@mkdir $(OBJ_FOLDER)
+		@mv *.o $(OBJ_FOLDER)
+
+$(LIBFT):
+		make -C ./libft
+
+$(NAME): $(LIBFT) $(OBJ)
+		gcc $(OBJ) -o $(NAME) -L $(LIBFTLINK) -lft
+
+clean:
+		/bin/rm -rf $(OBJ_FOLDER)
+
+fclean: clean
+		/bin/rm -f $(NAME)
+		make fclean -C ./libft/
+
+re: fclean all

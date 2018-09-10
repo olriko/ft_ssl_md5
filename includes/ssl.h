@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ssl.c                                           :+:      :+:    :+:   */
+/*   ssl.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ohamon <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/10 11:41:18 by ohamon            #+#    #+#             */
-/*   Updated: 2018/09/10 12:48:26 by ohamon           ###   ########.fr       */
+/*   Created: 2018/09/10 12:06:25 by ohamon            #+#    #+#             */
+/*   Updated: 2018/09/10 12:45:08 by ohamon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ssl.h>
+#ifndef SSL_H
+# define SSL_H
 
-int		main()
-{
-	return (0);
-}
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdlib.h>
+
+# include "../libft/includes/libft.h"
+# include "../libft/includes/get_next_line.h"
+
+#endif
