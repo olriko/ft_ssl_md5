@@ -6,7 +6,7 @@
 #    By: ohamon <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/09/10 11:50:13 by ohamon            #+#    #+#              #
-#    Updated: 2018/09/10 12:50:18 by ohamon           ###   ########.fr        #
+#    Updated: 2018/09/10 13:46:38 by ohamon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME = ft_ssl
 SRC_FOLDER = src/
 OBJ_FOLDER = obj/
 
-SRC = ft_ssl.c
+SRC = ft_ssl.c \
+	  md5.c
 
 OBJ =  $(SRC:.c=.o)
 OBJ := $(addprefix $(OBJ_FOLDER), $(OBJ))
